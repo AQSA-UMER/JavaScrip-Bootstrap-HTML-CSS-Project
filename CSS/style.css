@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Makes the body take full height */
+}
+.header {
+    background-color: #343a40;
+    color: white;
+    padding: 15px 20px; /* Increased padding for width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .logo {
+    border-radius: 50%;
+    width: 50px; /* Slightly larger logo */
+    height: 50px;
+}
+.header h1 {
+    font-size: 2rem; /* Larger font size */
+    font-family: 'Georgia', serif; /* Changed font family */
+    font-weight: bold; /* Bold font */
+    margin: 0;
+    color: #ffdd57; /* Updated color to make it more vibrant */
+}
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Changed from fixed to relative */
+    width: 100%;
+    margin-top: auto; /* Ensures it pushes content above if necessary */
+}
+
+.content-wrapper {
+    flex: 1; /* Ensures content pushes footer to the bottom */
+}
+
+#category-buttons button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#category-buttons .btn {
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    padding: 5px 15px;
+}
+#category-buttons .btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+#category-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.d-flex {
+    display: flex;
+}
+
+.sidebar-left,
+.sidebar-right {
+    background-color: #f8f9fa;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-left ul,
+.sidebar-right ul {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-left ul li,
+.sidebar-right ul li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.sidebar-left ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar-left ul li a:hover {
+    color: #007bff;
+}
+
+.sidebar-right ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.sidebar-right ul li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.modal-header {
+    background-color: #343a40;
+    color: white;
+}
+.modal-footer {
+    justify-content: center;
+}
+
+
+#servicesModal .modal-body ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+#servicesModal .modal-body ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+
+
+/* Style for Contact Modal */
+#contactModal .modal-body {
+    padding: 20px;
+}
+
+#contactModal .form-label {
+    font-weight: bold;
+}
+
+
+
+
+/* Ensure images inside cards scale properly */
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+/* Adjust the card spacing for smaller screens */
+@media (max-width: 576px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Adjust text size for smaller screens */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+
+
+/* Header responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .header .logo {
+        width: 50px; /* Adjust logo size for smaller screens */
+        height: auto;
+    }
+
+    #category-buttons {
+        flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        justify-content: center;
+        gap: 5px;
+    }
+}
+
+/* Left sidebar responsiveness */
+@media (max-width: 768px) {
+    .sidebar-left {
+        display: none; /* Optionally hide it on smaller screens */
+    }
+
+    /* Add a toggle button for the sidebar */
+    .toggle-sidebar {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+/* Right sidebar responsiveness */
+@media (max-width: 768px) {
+    .sidebar-right {
+        display: none; /* Hide the right sidebar on smaller screens */
+    }
+}
+
+/* Footer responsiveness */
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+
+/* Main content responsiveness */
+@media (max-width: 768px) {
+    main {
+        margin: 0;
+        width: 100%; /* Ensure it takes full width when sidebars are hidden */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

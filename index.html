@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snacker's Point</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/cards.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+
+        <!-- Header -->
+        <header class="header d-flex align-items-center justify-content-between px-4">
+            <div class="d-flex align-items-center">
+                <img src="./Image/icons/sp.jpg" alt="Logo" class="logo">
+                <h1 class="ms-2 mb-0">Snacker's Point</h1>
+            </div>
+            <div id="category-buttons" class="d-flex gap-2">
+                <button class="btn btn-outline-primary" onclick="filterByCategory('All')">All</button>
+                <button class="btn btn-outline-primary" onclick="filterByCategory('Pizza')">Pizza</button>
+                <button class="btn btn-outline-primary" onclick="filterByCategory('Drink')">Drinks</button>
+            </div>
+        </header>
+       
+    
+        <div class="d-flex">
+            <!-- Left Sidebar -->
+            <nav class="sidebar-left">
+                <ul id="menu-items" class="list-unstyled">
+                    
+                    <!-- Dynamic menu items will be inserted here -->
+                </ul>
+            </nav>
+        
+            <!-- Main Content -->
+            <main class="container mt-4 flex-grow-1">
+                <div id="food-card-container" class="row">
+                    <!-- Food cards dynamically generated here -->
+                </div>
+            </main>
+        
+            <!-- Right Sidebar -->
+            <aside class="sidebar-right">
+                <h4>Go For Hunt</h4>
+                <ul id="hunt-items" class="list-unstyled">
+                    <!-- Dynamic hunt items will be inserted here -->
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+
+    
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+
+
+
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Snacker's Point. All Rights Reserved.</p>
+    </footer>
+
+
+
+    <!-- About Modal -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="aboutModalLabel">About Snacker's Point</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>Welcome to Snacker's Point! Your one-stop shop for delicious snacks, drinks, and meals. Explore our wide variety of pizzas, drinks, and much more. We deliver happiness!</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+        <!-- Services Modal -->
+    <div class="modal fade" id="servicesModal" tabindex="-1" aria-labelledby="servicesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="servicesModalLabel">Our Services</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Online Ordering</li>
+                        <li>Fast Home Delivery</li>
+                        <li>Customizable Pizzas</li>
+                        <li>Discount Coupons</li>
+                        <li>24/7 Customer Support</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cart-items-list" class="list-unstyled">
+                        <!-- Dynamic cart items will be inserted here -->
+                    </ul>
+                    <hr>
+                    <p id="cart-total-cost" class="fw-bold">Total Cost: $0</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        <!-- Wishlist Modal -->
+    <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="wishlistModalLabel">Your Wishlist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="wishlist-items-list" class="list-unstyled">
+                        <!-- Dynamic wishlist items will be inserted here -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+            <!-- Contact Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contact-form" onsubmit="event.preventDefault(); validateContactForm();">
+                            <div class="mb-3">
+                                <label for="contact-name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="contact-name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="contact-email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-message" class="form-label">Message</label>
+                                <textarea class="form-control" id="contact-message" rows="4" placeholder="Enter your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="checkout-items-list" class="list-unstyled">
+                        <!-- Dynamic checkout items will be inserted here -->
+                    </ul>
+                    <hr>
+                    <p id="checkout-total-cost" class="fw-bold">Total Cost: $0</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmCheckout" class="btn btn-success">Confirm Purchase</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="./JS/filter.js"></script>
+    <script src="./JS/main.js"></script>
+</body>
+</html>

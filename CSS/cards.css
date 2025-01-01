@@ -1,0 +1,27 @@
+.card-deck {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ffe4e1;
+    border: none;
+    border-radius: 10px;
+}
+.card img {
+    border-radius: 10px 10px 0 0;
+    height: 150px;
+    object-fit: cover;
+}
+.card-body {
+    text-align: center;
+}
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
